@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nayara Souza Presença Digital</title>
+<meta name="description" content="Gestão de presença digital para negócios de Natal/RN: Google, WhatsApp, landing page, anúncios e redes sociais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: coluna única. Hero em duas colunas no desktop, depois dois caminhos de agenda, serviços, planos, clientes e dúvidas.
+   Paleta da Nayara. Principais: azul Imperial e vinho/pink Celebration. Secundárias: dourado, verde e laranja. */
+:root{
+  --bg:#F3F5FA; --surface:#FFFFFF; --ink:#001D51; --muted:#4A5B7C; --line:#D6DDEB; --soft:#E6EAF4;
+  --band:#001D51; --band-ink:#FFFFFF; --band-muted:#B9C6E0; --pink:#F6B9D4;
+  --berry:#820043; --berry-bright:#A80B5C; --berry-btn:#820043; --berry-ink:#FFFFFF; --accent-text:#820043;
+  --gold:#CB8E16; --gold-ink:#001D51; --ember:#D95A1B;
+  --btn:#001D51; --btn-ink:#FFFFFF; --wa:#0F5C40; --wa-ink:#FFFFFF; --ok:#0F5C40;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --text:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#000F2B; --surface:#071D47; --ink:#EEF2FA; --muted:#A9B8D3; --line:#1A356A; --soft:#0B2556;
+  --btn:#EEF2FA; --btn-ink:#001D51; --wa:#2FBF6A; --wa-ink:#04210F; --ok:#2FBF6A; --berry-btn:#A80B5C; --accent-text:#F6B9D4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#000F2B; --surface:#071D47; --ink:#EEF2FA; --muted:#A9B8D3; --line:#1A356A; --soft:#0B2556;
+  --btn:#EEF2FA; --btn-ink:#001D51; --wa:#2FBF6A; --wa-ink:#04210F; --ok:#2FBF6A; --berry-btn:#A80B5C; --accent-text:#F6B9D4; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--text);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--band);z-index:30}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(2.1rem,6.2vw,3.5rem);font-weight:800}
+h2{font-size:clamp(1.6rem,4.2vw,2.3rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:56px}
+.eyebrow{font:700 .78rem/1 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:58ch}
+.sec-head{display:grid;gap:10px;margin-bottom:28px}
+
+/* topo */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);color:var(--band-ink)}
+.top::after{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--berry-bright) 0 42%,var(--pink) 42% 58%,var(--gold) 58% 76%,var(--wa) 76% 90%,var(--ember) 90% 100%)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.brand{font:800 1.1rem var(--display);text-decoration:none;display:flex;align-items:center;gap:8px;min-width:0}
+.brand i{width:14px;height:14px;border-radius:50%;background:var(--gold);flex:none}
+.brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav{display:none;gap:22px;font-weight:500}
+.nav a{text-decoration:none;color:var(--band-muted)}
+.nav a:hover{color:var(--band-ink)}
+@media(min-width:820px){.nav{display:flex}}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:12px;border:2px solid transparent;font:700 1rem var(--text);text-decoration:none;cursor:pointer;text-align:center;transition:transform .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-main{background:var(--btn);color:var(--btn-ink)}
+.btn-gold{background:var(--gold);color:var(--gold-ink)}
+.btn-line{border-color:var(--line);background:transparent;color:var(--ink)}
+.btn-sm{min-height:40px;padding:8px 14px;font-size:.92rem}
+.btn-block{width:100%}
+
+/* hero */
+.hero{padding-block:44px 56px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr;gap:56px}}
+.hero h1 em{font-style:normal;background:var(--berry-bright);color:#fff;padding:0 .14em;border-radius:.16em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero-copy{display:grid;gap:20px;min-width:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.mini{font-size:.9rem;color:var(--muted)}
+
+/* ficha do Google (exemplo) */
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px;box-shadow:0 18px 40px -24px rgba(0,29,81,.45);min-width:0}
+.gcard header{display:grid;gap:2px}
+.gcard header b{font:700 1.15rem var(--display)}
+.gcard header span{color:var(--muted);font-size:.9rem}
+.stars{color:var(--gold);letter-spacing:2px}
+.gbtns{display:flex;gap:8px;flex-wrap:wrap}
+.gbtns span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:500;font-size:.9rem}
+.gbtns span.on{background:var(--wa);color:var(--wa-ink);border-color:transparent}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.checks li{display:flex;gap:10px;align-items:center;font-size:.95rem}
+.checks li::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--ok);flex:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10.5l4 4 8-9' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 10.5l4 4 8-9' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.tag{font-size:.78rem;color:var(--muted)}
+
+/* caminhos de agenda */
+.paths{display:grid;gap:16px}
+@media(min-width:760px){.paths{grid-template-columns:repeat(2,1fr)}}
+.path{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:14px;align-content:start;min-width:0}
+.path .who{font:700 .78rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.path p{color:var(--muted)}
+.path .btn{margin-top:4px}
+.aside{margin-top:18px;color:var(--muted)}
+.aside a{font-weight:700;color:var(--accent-text)}
+
+/* pilares */
+.pillars{display:grid;gap:20px}
+@media(min-width:820px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{padding-top:20px;border-top:4px solid var(--berry-btn);display:grid;gap:8px;align-content:start}
+.pillar:nth-child(2){border-top-color:var(--gold)}
+.pillar:nth-child(3){border-top-color:var(--wa)}
+.pillar ul{margin:6px 0 0;padding-left:18px;color:var(--muted);display:grid;gap:4px}
+
+/* planos */
+.plans{display:grid;gap:18px;align-items:stretch}
+@media(min-width:900px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.plan.hl{border:2px solid var(--berry-btn)}
+.plan .badge{align-self:flex-start;background:var(--gold);color:var(--gold-ink);font:700 .75rem var(--text);padding:4px 10px;border-radius:999px;letter-spacing:.04em}
+.plan .price{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.plan .price b{font:800 2.6rem/1 var(--display)}
+.plan .price span{color:var(--muted)}
+.plan .for{color:var(--muted);font-size:.95rem}
+.plan .inc{font-weight:700;font-size:.95rem;margin-bottom:-6px}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;flex:1;align-content:start}
+.plan li{display:flex;gap:10px;font-size:.95rem}
+.plan li::before{content:"+";font-weight:800;color:var(--ok);flex:none}
+.plan li span{color:var(--muted);display:block}
+.plan .actions{display:grid;gap:10px}
+.notes{display:grid;gap:10px;margin-top:22px;color:var(--muted);font-size:.95rem}
+.founders{margin-top:22px;border:2px dashed var(--gold);border-radius:14px;padding:16px 18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.founders[hidden]{display:none!important}
+
+/* clientes */
+.clients{display:grid;gap:16px}
+@media(min-width:700px){.clients{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.clients{grid-template-columns:repeat(3,1fr)}}
+.client{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.client small{color:var(--muted);font-weight:500}
+.client .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.empty{grid-column:1/-1;background:var(--soft);border-radius:16px;padding:22px;color:var(--muted)}
+
+/* passos */
+.steps{display:grid;gap:16px;counter-reset:s}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{counter-increment:s;display:grid;gap:8px;background:var(--soft);border-radius:16px;padding:22px;align-content:start}
+.step::before{content:counter(s);font:800 1.5rem var(--display);width:40px;height:40px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--gold-ink)}
+.step p{color:var(--muted)}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:760px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:700;color:var(--muted)}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 18px;color:var(--muted)}
+
+/* fechamento */
+.final{background:var(--berry);color:var(--berry-ink);border-radius:22px;padding:34px 24px;display:grid;gap:16px;justify-items:start}
+.final p{opacity:.92;max-width:52ch}
+.final .btn-line{border-color:rgba(255,255,255,.5);color:#fff}
+.final .btn-white{background:#fff;color:var(--berry)}
+footer{padding-block:28px 96px;background:var(--band);color:var(--band-muted);font-size:.9rem}
+footer .wrap{display:grid;gap:6px}
+footer b{color:var(--band-ink)}
+footer a{color:var(--band-ink)}
+
+.float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--btn);color:var(--btn-ink);padding:12px 18px;border-radius:12px;max-width:min(92vw,460px);z-index:40;font-size:.92rem;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+.toast[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* cores principais: azul e pink em destaque, as demais como apoio */
+.btn-berry{background:var(--berry-btn);color:#fff}
+.btn-white{background:#fff;color:var(--berry)}
+.top .btn-berry,.band .btn-berry{background:var(--berry-bright);border-color:var(--pink)}
+.band .btn-line{border-color:rgba(255,255,255,.45);color:#fff}
+.band{background:var(--band);color:var(--band-ink)}
+.band .eyebrow{color:var(--pink)}
+.band p{color:var(--band-muted)}
+.band .gcard{color:var(--ink)}
+.band .gcard .tag{color:var(--muted)}
+.tint{background:var(--soft)}
+.path{border-top:4px solid var(--berry-btn)}
+.path:nth-child(2){border-top-color:var(--btn)}
+.band .step{background:rgba(255,255,255,.08)}
+.step:nth-child(1)::before{background:var(--berry-bright);color:#fff}
+.step:nth-child(3)::before{background:var(--ember);color:#fff}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><i></i><span data-cfg="nome">Nayara Souza</span></a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#agendar">Agendar</a><a href="#planos">Planos</a><a href="#clientes">Clientes</a><a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-berry btn-sm" data-link="wa" data-msg="Oi! Vim pelo site e quero saber mais.">WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero band">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Presença digital para negócios de Natal/RN</p>
+        <h1>Seu negócio <em>fácil de achar</em> no Google e de chamar no WhatsApp.</h1>
+        <p class="lead">Eu organizo a presença digital do seu negócio: Google, WhatsApp, página de vendas e anúncios. Assim, o cliente te encontra, te chama e compra.</p>
+        <div class="ctas">
+          <a class="btn btn-berry" data-link="wa" data-msg="Oi! Vim pelo site e quero saber como funciona a gestão de presença digital.">Falar no WhatsApp</a>
+          <a class="btn btn-line" href="#planos">Ver planos e valores</a>
+        </div>
+        <p class="mini">Atendimento em Natal/RN.</p>
+      </div>
+      <aside class="gcard" aria-label="Exemplo de ficha no Google">
+        <header>
+          <b>Seu Negócio · Natal, RN</b>
+          <span>Salão de beleza · Aberto agora</span>
+          <span><span class="stars" aria-hidden="true">★★★★★</span> 4,9 · avaliações respondidas</span>
+        </header>
+        <div class="gbtns" aria-hidden="true"><span class="on">WhatsApp</span><span>Rotas</span><span>Ligar</span><span>Site</span></div>
+        <ul class="checks">
+          <li>Horário de funcionamento atualizado</li>
+          <li>Fotos recentes e organizadas</li>
+          <li>Botão que abre o WhatsApp direto</li>
+          <li>Avaliações respondidas</li>
+        </ul>
+        <p class="tag">Exemplo ilustrativo do que eu deixo em dia na ficha do seu negócio.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="agendar">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Agendar</p>
+        <h2>Escolha como você quer falar comigo</h2>
+      </div>
+      <div class="paths">
+        <article class="path">
+          <p class="who">Quero contratar</p>
+          <h3>Reunião de fechamento</h3>
+          <p>Vamos conversar sobre o seu negócio, escolher o plano ideal e combinar os próximos passos. Eu marco o dia e o horário com você pelo WhatsApp.</p>
+          <a class="btn btn-berry btn-block" data-link="wa" data-msg="Oi! Quero agendar uma reunião de fechamento para contratar a gestão de presença digital.">Agendar pelo WhatsApp</a>
+        </article>
+        <article class="path">
+          <p class="who">Já sou cliente</p>
+          <h3>Reunião de alinhamento</h3>
+          <p>Escolha um horário na minha agenda para revisarmos os resultados, tirar dúvidas e ajustar o que for preciso.</p>
+          <a class="btn btn-main btn-block" data-link="agendaCliente">Agendar alinhamento</a>
+        </article>
+      </div>
+      <p class="aside">Prefere tirar uma dúvida antes? <a data-link="wa" data-msg="Oi! Tenho uma dúvida sobre os planos.">Chame no WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <section id="servicos" class="tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">O que eu faço</p>
+        <h2>Três passos para vender mais</h2>
+        <p class="lead">Quem procura um serviço em Natal olha o Google, chama no WhatsApp e confere as redes sociais. Eu deixo tudo organizado e falando a mesma língua.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><h3>Ser encontrado</h3><ul><li>Perfil da Empresa no Google completo</li><li>Presença no mapa da sua região</li><li>Fotos, horários e serviços atualizados</li></ul></div>
+        <div class="pillar"><h3>Ser chamado</h3><ul><li>WhatsApp Business organizado</li><li>Catálogo, preços e mensagens automáticas</li><li>Respostas rápidas e etiquetas de atendimento</li></ul></div>
+        <div class="pillar"><h3>Vender mais</h3><ul><li>Landing page ligada ao seu WhatsApp</li><li>Anúncios para o público de Natal</li><li>Conteúdo e estratégia para as redes sociais</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Planos mensais</p>
+        <h2>Escolha o plano ideal para o seu negócio</h2>
+        <p class="lead">Cada plano inclui tudo o que o anterior oferece, com mais recursos para o seu negócio crescer.</p>
+      </div>
+      <div class="plans" id="plans"></div>
+      <div class="founders" id="founders" hidden>
+        <div><b>Vagas para clientes fundadores</b><p class="mini" id="foundersText"></p></div>
+        <a class="btn btn-gold btn-sm" data-link="wa" data-msg="Oi! Quero saber sobre as vagas de cliente fundador.">Quero uma vaga</a>
+      </div>
+      <div class="notes" id="notes"></div>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Clientes</p>
+        <h2>Negócios que eu atendo</h2>
+        <p class="lead">Clique para ver as redes sociais de cada cliente.</p>
+      </div>
+      <div class="clients" id="clients"></div>
+    </div>
+  </section>
+
+  <section id="como" class="band">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Como funciona</p><h2>Do primeiro contato ao acompanhamento</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Reunião de fechamento</h3><p>Marcamos pelo WhatsApp, conversamos sobre o seu negócio e escolhemos o plano ideal.</p></div>
+        <div class="step"><h3>Assinatura e organização</h3><p>Você assina o plano pelo Mercado Pago e eu organizo a sua presença digital.</p></div>
+        <div class="step"><h3>Acompanhamento</h3><p>Você agenda os alinhamentos na minha agenda online e acompanha o que foi feito e o que vem a seguir.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes</h2></div>
+      <div class="faq">
+        <details><summary>O que acontece na reunião de fechamento?</summary><p>É uma conversa para entender o seu negócio, escolher o plano mais adequado e combinar os próximos passos. O dia e o horário são combinados comigo pelo WhatsApp.</p></details>
+        <details><summary>Preciso passar minhas senhas?</summary><p>Não. Peço acesso de gerente ao Perfil da Empresa no Google e acesso parcial às suas redes sociais pelo Meta Business Suite. Você pode remover esses acessos quando quiser.</p></details>
+        <details><summary>Quanto tempo leva para ver resultado?</summary><p>O Google e o WhatsApp ficam organizados em poucos dias. O movimento de clientes costuma levar algumas semanas para responder, e eu não prometo um número de clientes. Nos alinhamentos, você acompanha o que mudou.</p></details>
+        <details><summary>Já tenho quem cuide das minhas redes sociais. Ainda vale a pena?</summary><p>Sim. Posso cuidar do Google, do WhatsApp e da página de vendas, e trabalhar junto com quem já cuida das suas redes.</p></details>
+        <details><summary>Como funciona o pagamento e o cancelamento?</summary><p>Você assina o plano pelo Mercado Pago e a mensalidade é cobrada todo mês. O contrato tem prazo mínimo de 3 meses e, depois disso, o cancelamento é feito com aviso prévio de 30 dias. Nos primeiros 30 dias, você pode cancelar sem multa se não gostar do trabalho.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2>Vamos organizar o seu negócio?</h2>
+        <p>Me chame no WhatsApp para marcar a reunião de fechamento. Eu olho o seu Google antes e já te mostro o que dá para melhorar.</p>
+        <div class="ctas">
+          <a class="btn btn-white" data-link="wa" data-msg="Oi! Vim pelo site e quero organizar a presença digital do meu negócio.">Falar no WhatsApp</a>
+          <a class="btn btn-line" href="#planos">Ver planos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b data-cfg="nome">Nayara Souza</b> · Presença digital para negócios de Natal/RN</span>
+    <span id="contact"></span>
+  </div>
+</footer>
+
+<a class="btn btn-wa float" data-link="wa" data-msg="Oi! Vim pelo site e quero saber mais." aria-label="Falar no WhatsApp">WhatsApp</a>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO: edite só este bloco. Tudo na página vem daqui.
+   Dica: mantenha as aspas "" e as vírgulas , exatamente como estão.
+   ============================================================ */
+const CONFIG = {
+  nome: "Nayara Souza",
+  cnpj: "55.910.515/0001-10",
+  email: "nayaragabriela444@gmail.com",
+  whatsapp: "5515996618879",             // só números: 55 + DDD + número
+  whatsappExibicao: "(15) 99661-8879",   // como aparece escrito no rodapé
+  agendaCliente: "https://calendar.app.google/MVt8soHHZVXAi4pH6",  // Google Agenda: alinhamentos de clientes
+
+  mostrarFundadores: false,              // true = mostra a faixa de clientes fundadores
+  textoFundadores: "50% de desconto nos 2 primeiros meses para os 3 primeiros clientes, em troca de um depoimento.",
+
+  notas: [
+    "Contrato mínimo de 3 meses. Se nos primeiros 30 dias você não gostar do trabalho, pode cancelar sem multa.",
+    "O pagamento é mensal, pelo Mercado Pago."
+  ],
+
+  planos: [
+    { id: "essencial", nome: "Essencial", preco: 200,
+      para: "Ideal para o comércio de bairro ou profissional liberal que está invisível na internet e quer organizar a vitrine digital.",
+      mercadoPago: "https://mpago.la/1HwANnf",
+      itens: [
+        { t: "Perfil da Empresa no Google otimizado", d: "Apareça no mapa do Google quando procurarem pelos seus serviços na sua região." },
+        { t: "WhatsApp Business organizado", d: "Catálogo de produtos ou serviços com preços e mensagens automáticas." },
+        { t: "Landing page simples", d: "Uma página objetiva, ligada ao seu WhatsApp, para apresentar o seu negócio." },
+        { t: "Suporte e reuniões de alinhamento quinzenais", d: "A cada 15 dias, revisamos o que foi feito e o que vem a seguir." }
+      ] },
+    { id: "motor", nome: "Motor de Vendas", preco: 600, destaque: "Recomendado",
+      para: "Para quem já está organizado e quer atrair mais clientes com anúncios e um funil de atendimento.",
+      inclui: "Tudo do plano Essencial, e mais:",
+      mercadoPago: "https://mpago.la/13e4RUM",
+      itens: [
+        { t: "Landing page completa", d: "Com acompanhamento e melhorias contínuas." },
+        { t: "Gestão de tráfego local (anúncios)", d: "Anúncios no Instagram e no Facebook para levar pessoas de Natal direto ao seu WhatsApp ou ao seu site. A verba dos anúncios é paga por você, diretamente à plataforma." },
+        { t: "Funil de atendimento e integrações", d: "Respostas rápidas e etiquetas no WhatsApp para organizar quem comprou, quem está negociando e quem vai retornar." },
+        { t: "Planejamento de conteúdo", d: "Calendário mensal com ideias, roteiros e o que postar para manter as suas redes ativas." },
+        { t: "Suporte e reuniões presenciais semanais", d: "Encontros toda semana para acompanhar os resultados." }
+      ] },
+    { id: "fulltech", nome: "Full Tech", preco: 1200,
+      para: "Para quem quer uma operação digital completa, com redes sociais, site de vendas e estratégia.",
+      inclui: "Tudo do plano Motor de Vendas, e mais:",
+      mercadoPago: "https://mpago.la/1p2kCbw",
+      itens: [
+        { t: "Gestão 360° das redes sociais", d: "Criação completa de textos e legendas, suporte total na linha editorial e nas filmagens." },
+        { t: "Site de vendas completo", d: "Com domínio próprio e integrações." },
+        { t: "Reuniões periódicas de estratégia", d: "Para planejar os próximos passos do seu negócio." }
+      ] }
+  ],
+
+  // Seus clientes. Copie o modelo abaixo para cada um e apague as duas barras do começo.
+  clientes: [
+    // { nome: "Salão da Maria", nicho: "Salão de beleza · Ponta Negra", instagram: "https://instagram.com/usuario", google: "https://maps.app.goo.gl/..." },
+  ]
+};
+
+const $ = (s, r = document) => r.querySelector(s);
+const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const brl = n => n.toLocaleString("pt-BR");
+
+function waUrl(msg) {
+  const num = String(CONFIG.whatsapp || "").replace(/\D/g, "");
+  if (!num) return "";
+  return "https://wa.me/" + num + "?text=" + encodeURIComponent(msg || "Oi!");
+}
+function resolve(el) {
+  const kind = el.dataset.link;
+  if (kind === "wa") return waUrl(el.dataset.msg);
+  if (kind === "plan") return CONFIG.planos.find(p => p.id === el.dataset.plan)?.mercadoPago || "";
+  return CONFIG[kind] || "";
+}
+let toastTimer;
+function toast(t) {
+  const el = $("#toast"); el.textContent = t; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 4200);
+}
+const MISSING = {
+  wa: "Falta o número do WhatsApp. Edite o campo whatsapp no bloco CONFIG.",
+  agendaCliente: "Falta o link do Google Agenda (agendaCliente no CONFIG).",
+  plan: "Falta o link do Mercado Pago deste plano (mercadoPago no CONFIG)."
+};
+
+function render() {
+  document.querySelectorAll("[data-cfg=nome]").forEach(e => { e.textContent = CONFIG.nome; });
+
+  $("#plans").innerHTML = CONFIG.planos.map(p => `
+    <article class="plan${p.destaque ? " hl" : ""}">
+      ${p.destaque ? `<span class="badge">${esc(p.destaque)}</span>` : ""}
+      <h3>${esc(p.nome)}</h3>
+      <div class="price"><b>R$ ${brl(p.preco)}</b><span>/mês</span></div>
+      <p class="for">${esc(p.para)}</p>
+      ${p.inclui ? `<p class="inc">${esc(p.inclui)}</p>` : ""}
+      <ul>${p.itens.map(i => `<li><div><b>${esc(i.t)}</b><span>${esc(i.d)}</span></div></li>`).join("")}</ul>
+      <div class="actions">
+        <a class="btn ${p.destaque ? "btn-berry" : "btn-main"} btn-block" data-link="plan" data-plan="${esc(p.id)}">Assinar pelo Mercado Pago</a>
+        <a class="btn btn-line btn-block" data-link="wa" data-msg="Oi! Tenho interesse no plano ${esc(p.nome)} (R$ ${brl(p.preco)}/mês).">Tirar dúvidas no WhatsApp</a>
+      </div>
+    </article>`).join("");
+
+  $("#founders").hidden = !CONFIG.mostrarFundadores;
+  $("#foundersText").textContent = CONFIG.textoFundadores;
+  $("#notes").innerHTML = (CONFIG.notas || []).map(n => `<p>${esc(n)}</p>`).join("");
+
+  const box = $("#clients");
+  if (!CONFIG.clientes.length) {
+    box.innerHTML = `<div class="empty">Em breve, os primeiros clientes aparecem aqui, cada um com o link das suas redes sociais.</div>`;
+  } else {
+    box.innerHTML = CONFIG.clientes.map(c => `
+      <article class="client">
+        <h3>${esc(c.nome)}</h3>
+        <small>${esc(c.nicho || "")}</small>
+        <div class="links">
+          ${c.instagram ? `<a class="btn btn-line btn-sm" href="${esc(c.instagram)}" target="_blank" rel="noopener">Instagram</a>` : ""}
+          ${c.google ? `<a class="btn btn-line btn-sm" href="${esc(c.google)}" target="_blank" rel="noopener">Google</a>` : ""}
+        </div>
+      </article>`).join("");
+  }
+
+  $("#contact").innerHTML = `CNPJ ${esc(CONFIG.cnpj)} · WhatsApp ${esc(CONFIG.whatsappExibicao)} · <a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a>`;
+
+  document.querySelectorAll("[data-link]").forEach(el => {
+    const url = resolve(el);
+    if (url) { el.href = url; el.target = "_blank"; el.rel = "noopener"; }
+    else { el.href = "#"; el.dataset.missing = "1"; }
+  });
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-missing]");
+  if (a) { e.preventDefault(); toast(MISSING[a.dataset.link] || "Este botão ainda não tem link."); }
+});
+render();
+</script>
+
+</body>
+</html>
